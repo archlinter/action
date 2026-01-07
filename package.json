@@ -2,33 +2,39 @@
   "name": "@archlinter/action",
   "version": "0.1.0",
   "description": "GitHub Action for archlint architecture checks with PR comments",
-  "type": "module",
   "main": "dist/index.js",
-  "files": [
-    "dist",
-    "action.yml"
-  ],
+  "type": "module",
   "scripts": {
     "build": "ncc build src/index.ts -o dist --minify --no-cache",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepare": "simple-git-hooks"
   },
-  "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@actions/exec": "^1.1.1",
-    "@actions/github": "^6.0.1",
-    "@archlinter/core": "^0.8.1"
-  },
-  "devDependencies": {
-    "@vercel/ncc": "^0.38.3",
-    "@types/node": "^20.0.0",
-    "typescript": "^5.4.0"
-  },
-  "publishConfig": {
-    "access": "public"
+  "simple-git-hooks": {
+    "pre-commit": "npx nano-staged"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/archlinter/action.git"
   },
-  "license": "MIT"
+  "files": [
+    "dist",
+    "action.yml"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/exec": "^1.1.1",
+    "@actions/github": "^6.0.1",
+    "@archlinter/core": "^0.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@vercel/ncc": "^0.38.3",
+    "nano-staged": "^0.9.0",
+    "simple-git-hooks": "^2.13.1",
+    "typescript": "^5.4.0"
+  }
 }

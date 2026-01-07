@@ -3,7 +3,7 @@ import { JsDiffResult } from '@archlinter/core';
 export function header(result: JsDiffResult): string {
   const status = result.hasRegressions ? '❌ Failing' : '✅ Passing';
   
-  return `## archlint Architecture Report <!-- archlint-report -->
+  return `## Archlint Report <!-- archlint-report -->
 
 | Metric | Value |
 |--------|-------|

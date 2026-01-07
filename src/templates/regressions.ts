@@ -50,6 +50,10 @@ function getChangeTypeLabel(type: JsRegressionType): string {
 }
 
 function formatLocation(reg: JsRegression): string {
+  if (reg.smell.locations && reg.smell.locations.length > 0) {
+    const loc = reg.smell.locations[0];
+    return `\`${loc.file}:${loc.line}\``;
+  }
   if (reg.smell.files && reg.smell.files.length > 0) {
     return `\`${reg.smell.files[0]}\``;
   }

@@ -1,4 +1,4 @@
-import { JsDiffResult } from '@archlinter/core';
+import { JsDiffResult } from "@archlinter/core";
 export interface RunOptions {
     baseline: string;
     failOn: string;
